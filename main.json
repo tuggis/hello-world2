@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.25.53.49325",
+      "templateHash": "15235976680720046259"
+    }
+  },
+  "parameters": {
+    "b": {
+      "type": "bool",
+      "defaultValue": false
+    },
+    "s": {
+      "type": "string",
+      "defaultValue": "Hello"
+    },
+    "o": {
+      "type": "object",
+      "defaultValue": {
+        "name": "Per"
+      }
+    },
+    "t": {
+      "type": "string",
+      "defaultValue": "[if(equals(parameters('b'), true()), format('{0} is true', parameters('b')), format('{0} is false', parameters('b')))]"
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "o": {
+      "type": "string",
+      "value": "My output"
+    }
+  }
+}
