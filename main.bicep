@@ -71,7 +71,7 @@ resource myNSG 'Microsoft.Network/networkSecurityGroups@2023-09-01' = {
           destinationAddressPrefix: '10.0.0.0/24'
           sourceAddressPrefixes: [
             '123.123.123.0/24'
-            '10.0.0.1/24'
+            '10.0.0.0/24'
           ]
           sourcePortRange: '*'
           destinationPortRanges: [
