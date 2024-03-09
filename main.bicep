@@ -1,8 +1,28 @@
-param b bool = false
-param s string = 'Hello'
-param o object = { name: 'Per' }
-param t string = (b == true) ? '${b} is true' : '${b} is false'
-output o string = 'My output'
+param location string = resourceGroup().location
 
-@allowed([ 'Prod' ])
-param p string = 'Prod'
+resource myVnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
+  name: 'myVnet'
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    subnets: [
+      {
+        name: 'mySubnet1'
+        properties: {
+          addressPrefix: '10.0.0.0/24'
+        }
+      }
+      {
+        name: 'mySubnet2'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
+
+  }
+}
